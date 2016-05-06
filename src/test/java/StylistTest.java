@@ -24,7 +24,7 @@ public class StylistTest {
   }
 
   @Test
-  public void equals_correctlyCompareStylists(){
+  public void equals_correctlyCompareStylists_True(){
     Stylist firstStylist = new Stylist("Luca");
     Stylist secondStylist = new Stylist("Luca");
     assertTrue(firstStylist.equals(secondStylist));
