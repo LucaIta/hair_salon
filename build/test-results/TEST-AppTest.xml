@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="AppTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2016-05-06T20:46:01" hostname="epicodus-92.local" time="0.417">
+<testsuite name="AppTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2016-05-06T23:46:28" hostname="epicodus-92.local" time="0.509">
   <properties/>
-  <testcase name="stylistIsCreated" classname="AppTest" time="0.4"/>
-  <testcase name="rootTest" classname="AppTest" time="0.013"/>
+  <testcase name="stylistIsCreated" classname="AppTest" time="0.428"/>
+  <testcase name="rootTest" classname="AppTest" time="0.016"/>
+  <testcase name="ClientCreatedAndDisplayed" classname="AppTest" time="0.058"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[[Thread-4] INFO org.eclipse.jetty.util.log - Logging initialized @577ms
+  <system-err><![CDATA[[Thread-4] INFO org.eclipse.jetty.util.log - Logging initialized @522ms
 [Thread-4] INFO spark.webserver.JettySparkServer - == Spark has ignited ...
 [Thread-4] INFO spark.webserver.JettySparkServer - >> Listening on 0.0.0.0:4567
 [Thread-4] INFO org.eclipse.jetty.server.Server - jetty-9.3.2.v20150730
-[Thread-4] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@4437a02e{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
-[Thread-4] INFO org.eclipse.jetty.server.Server - Started @648ms
+[Thread-4] INFO org.eclipse.jetty.server.ServerConnector - Started ServerConnector@337323f2{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+[Thread-4] INFO org.eclipse.jetty.server.Server - Started @635ms
 [Test worker] INFO spark.webserver.JettySparkServer - >>> Spark shutting down ...
-[Test worker] INFO org.eclipse.jetty.server.ServerConnector - Stopped ServerConnector@4437a02e{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
+[Test worker] INFO org.eclipse.jetty.server.ServerConnector - Stopped ServerConnector@337323f2{HTTP/1.1,[http/1.1]}{0.0.0.0:4567}
 [Test worker] INFO spark.webserver.JettySparkServer - done
 ]]></system-err>
 </testsuite>

@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="StylistTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2016-05-06T20:46:01" hostname="epicodus-92.local" time="0.079">
+<testsuite name="StylistTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2016-05-06T23:46:28" hostname="epicodus-92.local" time="0.079">
   <properties/>
-  <testcase name="equals_correctlyCompareStylists_True" classname="StylistTest" time="0.004"/>
+  <testcase name="equals_correctlyCompareStylists_True" classname="StylistTest" time="0.005"/>
   <testcase name="find_returnsStylistCorrectly" classname="StylistTest" time="0.014"/>
-  <testcase name="changeName_changeStylistNameCorrectly" classname="StylistTest" time="0.019"/>
+  <testcase name="changeName_changeStylistNameCorrectly" classname="StylistTest" time="0.018"/>
   <testcase name="Stylist_instantiatesCorrectly_true" classname="StylistTest" time="0.005"/>
-  <testcase name="getName_returnNameCorrectly_Luca" classname="StylistTest" time="0.005"/>
-  <testcase name="delete_deleteStylistCorrectly" classname="StylistTest" time="0.017"/>
-  <testcase name="save_savesStylistCorrectlyInDatabase" classname="StylistTest" time="0.013"/>
+  <testcase name="getName_returnNameCorrectly_Luca" classname="StylistTest" time="0.004"/>
+  <testcase name="delete_deleteStylistCorrectly" classname="StylistTest" time="0.018"/>
+  <testcase name="save_savesStylistCorrectlyInDatabase" classname="StylistTest" time="0.014"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

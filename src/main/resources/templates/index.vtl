@@ -1,11 +1,13 @@
 <h1>Hair Salon</h1>
 
 
-<h1>Stylist list/h1>
+<h2>Stylist list</h2>
 
+<ul>
   #foreach ($stylist in $stylists)
-    <a href="/stylists/$stylist.getId">$stylist.getName()</a>;
+    <li><a href="/stylists/$stylist.getId()">$stylist.getName()</a></li>
   #end
+</ul>
 
 <p>Add a stylist here:</p>
 

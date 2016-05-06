@@ -50,9 +50,12 @@ public class ClientTest {
 
   @Test
   public void find_returnClientByStylistId(){
-    Client newClient = new Client("Mark", 81);
-    newClient.save();
-    assertTrue(newClient.equals(Client.findByStylistId(81)));
+    Client firstClient = new Client("Mark", 81);
+    Client secondClient = new Client("Luke", 81);
+    firstClient.save();
+    secondClient.save();
+    Client[] clients = new Client[] {firstClient, secondClient};
+    assertTrue(Client.findByStylistId(81).containsAll(Arrays.asList(clients)));
   }
 
   @Test

@@ -30,7 +30,7 @@ public class Client {
   }
 
   public void save(){
-    String sql = "INSERT INTO clients (name, stylist_id) values (:name, :stylist_id)";
+    String sql = "INSERT INTO clients (name, stylist_id) VALUES (:name, :stylist_id)";
     try (Connection con = DB.sql2o.open()){
       this.id = (int) con.createQuery(sql, true).addParameter("name", this.name).addParameter("stylist_id", this.stylist_id).executeUpdate().getKey();
     }
@@ -64,10 +64,10 @@ public class Client {
     }
   }
 
-  public static Client findByStylistId(int stylist_id){
+  public static List<Client> findByStylistId(int stylist_id){ //modified
     try (Connection con = DB.sql2o.open()){
       String sql = "SELECT id, name, stylist_id FROM clients WHERE stylist_id = :stylist_id";
-      return con.createQuery(sql).addParameter("stylist_id", stylist_id).executeAndFetchFirst(Client.class);
+      return con.createQuery(sql).addParameter("stylist_id", stylist_id).executeAndFetch(Client.class);  // modified
     }
   }
 
