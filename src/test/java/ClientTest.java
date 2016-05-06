@@ -49,12 +49,28 @@ public class ClientTest {
   }
 
   @Test
-  public void findByStylistId(){
+  public void find_returnClientByStylistId(){
     Client newClient = new Client("Mark", 81);
     newClient.save();
     assertTrue(newClient.equals(Client.findByStylistId(81)));
   }
 
+  @Test
+  public void delete_deleteClientCorrectly(){
+    Client firstClient = new Client("Mark", 81);
+    firstClient.save();
+    firstClient.delete();
+    assertEquals(0, Client.all().size());
+  }
 
-  
+  @Test
+  public void changeName_changeClientNameCorrectly(){
+    Client firstClient = new Client("Mark", 81);
+    firstClient.save();
+    int client_Id = firstClient.getId();
+    firstClient.changeName("Luca");
+    assertEquals("Luca", Client.find(client_Id).getName());
+  }
+
+
 }

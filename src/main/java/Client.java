@@ -36,6 +36,20 @@ public class Client {
     }
   }
 
+  public void delete(){
+    String sql = "DELETE FROM clients WHERE id = :id";
+    try (Connection con = DB.sql2o.open()){
+      con.createQuery(sql).addParameter("id", this.id).executeUpdate();
+    }
+  }
+
+  public void changeName(String name){
+    String sql = "UPDATE clients SET name = :name WHERE id = :id";
+    try (Connection con = DB.sql2o.open()){
+      con.createQuery(sql).addParameter("id", this.id).addParameter("name", name).executeUpdate();
+    }
+  }
+
   public static List<Client> all(){
     String sql = "SELECT id, name, stylist_id FROM clients";
     try (Connection con = DB.sql2o.open()){
