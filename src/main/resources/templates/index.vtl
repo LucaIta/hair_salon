@@ -1,0 +1,16 @@
+<h1>Hair Salon</h1>
+
+
+<h1>Stylist list/h1>
+
+  #foreach ($stylist in $stylists)
+    <a href="/stylists/$stylist.getId">$stylist.getName()</a>;
+  #end
+
+<p>Add a stylist here:</p>
+
+<form action="/stylists" method="post">
+  <label for="stylistname">Stylist name</label>
+  <input id="stylistname" name="stylistname" type="text">
+  <button type="submit" class="btn btn-success">Add stylist</button>
+</form>
