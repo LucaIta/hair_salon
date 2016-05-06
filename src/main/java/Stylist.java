@@ -21,6 +21,20 @@ public class Stylist {
     return id;
   }
 
+  public void delete(){
+    String sql = "DELETE FROM stylists WHERE id = :id";
+    try (Connection con = DB.sql2o.open()){
+      con.createQuery(sql).addParameter("id", this.id).executeUpdate();
+    }
+  }
+
+  public void changeName(String name){
+    String sql = "UPDATE stylists SET name = :name WHERE id = :id";
+    try (Connection con = DB.sql2o.open()){
+      con.createQuery(sql).addParameter("id", this.id).addParameter("name", name).executeUpdate();
+    }
+  }
+
   public void save(){
     String sql = "INSERT INTO stylists (name) values (:name)";
     try (Connection con = DB.sql2o.open()){
@@ -52,6 +66,6 @@ public class Stylist {
     }
   }
 
-  
+
 
 }
