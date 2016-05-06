@@ -35,7 +35,12 @@ public class Stylist {
     }
   }
 
-  // need to add retrieve method from database
+  public static Stylist find(int id){
+    try (Connection con = DB.sql2o.open()){
+      String sql = "SELECT id, name FROM stylists WHERE id = :id";
+      return con.createQuery(sql).addParameter("id", id).executeAndFetchFirst(Stylist.class);
+    }
+  }
 
   @Override
   public boolean equals(Object otherStylist){
@@ -45,10 +50,8 @@ public class Stylist {
       Stylist otherStylist2 = (Stylist) otherStylist;
       return this.getName().equals(otherStylist2.getName()) && this.getId() == otherStylist2.getId();
     }
-
-
-
-
   }
+
+  
 
 }
