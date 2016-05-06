@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="StylistTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2016-05-06T17:06:12" hostname="epicodus-92.local" time="0.13">
+  <properties/>
+  <testcase name="Stylist_instantiatesCorrectly_true" classname="StylistTest" time="0.083"/>
+  <testcase name="equals_correctlyCompareStylists" classname="StylistTest" time="0.005"/>
+  <testcase name="getName_returnNameCorrectly_Luca" classname="StylistTest" time="0.005"/>
+  <testcase name="save_savesStylistCorrectlyInDatabase" classname="StylistTest" time="0.036"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
