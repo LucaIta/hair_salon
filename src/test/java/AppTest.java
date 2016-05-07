@@ -23,19 +23,22 @@ public class AppTest extends FluentTest {
   @ClassRule
   public static ServerRule server = new ServerRule();
 
-  @Test public void rootTest() {
+  @Test
+  public void rootTest() {
     goTo("http://localhost:4567/");
     assertThat(pageSource()).contains("Add stylist");
   }
 
-  @Test public void stylistIsCreated() {
+  @Test
+  public void stylistIsCreated() {
     goTo("http://localhost:4567/");
     fill("#stylistname").with("Mark");
     submit(".btn");
     assertThat(pageSource()).contains("Mark");
   }
 
-  @Test public void ClientCreatedAndDisplayed() {
+  @Test
+  public void ClientCreatedAndDisplayed() {
     Stylist newStylist = new Stylist ("Mark");
     newStylist.save();
     String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
@@ -45,7 +48,18 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Luca");
   }
 
-  @Test public void ClientPageDisplayed() {
+  @Test
+  public void FromStylistPageItIsPossibleToGetBackToListOfStylists(){
+    Stylist newStylist = new Stylist ("Mark");
+    newStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
+    goTo(stylistPath);
+    click("a", withText("Go back to list of stylists"));
+    assertThat(pageSource()).contains("Add stylist");
+  }
+
+  @Test
+  public void ClientPageDisplayed() {
     Stylist newStylist = new Stylist ("Mark");
     newStylist.save();
     Client newClient = new Client ("Luca", newStylist.getId());
@@ -56,7 +70,34 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Luca");
   }
 
-  @Test public void ClientCanBeDelited() {
+  @Test
+  public void FromClientPageItIsPossibleToGetBackToListOfStylists(){
+    Stylist newStylist = new Stylist ("Mark");
+    newStylist.save();
+    Client newClient = new Client ("Luca", newStylist.getId());
+    newClient.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
+    goTo(stylistPath);
+    click("a", withText("Luca"));
+    click("a", withText("Go back to list of stylists"));
+    assertThat(pageSource()).contains("Add stylist");
+  }
+
+  @Test
+  public void FromClientPageItIsPossibleToGetBackToListOfClients(){
+    Stylist newStylist = new Stylist ("Mark");
+    newStylist.save();
+    Client newClient = new Client ("Luca", newStylist.getId());
+    newClient.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
+    goTo(stylistPath);
+    click("a", withText("Luca"));
+    click("a", withText("Go back to stylist page"));
+    assertThat(pageSource()).contains("These are the customers of Mark");
+  }
+
+  @Test
+  public void ClientCanBeDelited() {
     Stylist newStylist = new Stylist ("Mark");
     newStylist.save();
     Client newClient = new Client ("Luca", newStylist.getId());
@@ -67,7 +108,8 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).doesNotContain("Luca").contains("Mark");
   }
 
-  @Test public void ClientNameCanBeModified() {
+  @Test
+  public void ClientNameCanBeModified() {
     Stylist newStylist = new Stylist ("Mark");
     newStylist.save();
     Client newClient = new Client ("Luca", newStylist.getId());
@@ -79,7 +121,8 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Whatever");
   }
 
-  @Test public void stylistIsDeleted() {
+  @Test
+  public void stylistIsDeleted() {
     Stylist newStylist = new Stylist ("Mark");
     newStylist.save();
     String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
@@ -88,7 +131,8 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).doesNotContain("Mark").contains("Hair Salon");
   }
 
-  @Test public void stylistNameIsChangedCorrectly() {
+  @Test
+  public void stylistNameIsChangedCorrectly() {
     Stylist newStylist = new Stylist ("Mark");
     newStylist.save();
     String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());

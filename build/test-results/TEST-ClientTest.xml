@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ClientTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2016-05-07T17:41:59" hostname="oems-MacBook-Pro.local" time="0.306">
+<testsuite name="ClientTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2016-05-07T18:00:55" hostname="oems-MacBook-Pro.local" time="0.29">
   <properties/>
-  <testcase name="delete_deleteClientCorrectly" classname="ClientTest" time="0.06"/>
-  <testcase name="save_savesClientCorrectlyInDatabase" classname="ClientTest" time="0.032"/>
-  <testcase name="getStylistId_returnsStylistIdCorrectly_34" classname="ClientTest" time="0.013"/>
-  <testcase name="changeName_changeClientNameCorrectly" classname="ClientTest" time="0.043"/>
-  <testcase name="equals_correctlyCompareClientsCorrectly_true" classname="ClientTest" time="0.022"/>
-  <testcase name="Client_instantiatesCorrectly_true" classname="ClientTest" time="0.016"/>
-  <testcase name="find_returnClientByStylistId" classname="ClientTest" time="0.053"/>
-  <testcase name="getName_returnNameCorrectly_Mark" classname="ClientTest" time="0.013"/>
-  <testcase name="find_returnsClientCorrectly" classname="ClientTest" time="0.044"/>
+  <testcase name="delete_deleteClientCorrectly" classname="ClientTest" time="0.042"/>
+  <testcase name="save_savesClientCorrectlyInDatabase" classname="ClientTest" time="0.043"/>
+  <testcase name="getStylistId_returnsStylistIdCorrectly_34" classname="ClientTest" time="0.012"/>
+  <testcase name="changeName_changeClientNameCorrectly" classname="ClientTest" time="0.046"/>
+  <testcase name="equals_correctlyCompareClientsCorrectly_true" classname="ClientTest" time="0.01"/>
+  <testcase name="Client_instantiatesCorrectly_true" classname="ClientTest" time="0.022"/>
+  <testcase name="find_returnClientByStylistId" classname="ClientTest" time="0.058"/>
+  <testcase name="getName_returnNameCorrectly_Mark" classname="ClientTest" time="0.009"/>
+  <testcase name="find_returnsClientCorrectly" classname="ClientTest" time="0.035"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
