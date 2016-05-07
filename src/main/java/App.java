@@ -98,6 +98,18 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    post("/stylists/:stylist_id/modifyName", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      int stylist_id = Integer.parseInt(request.params("stylist_id"));
+      String newStylistName = request.queryParams("stylistName");
+      Stylist.find(stylist_id).changeName(newStylistName);
+      model.put("stylists", Stylist.all());
+      model.put("template", "templates/index.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+
+
     // /stylists/$stylist.getId()/clients
 
   }

@@ -19,6 +19,16 @@
 
 </form>
 
+<form action="/stylists/$stylist.getId()/modifyName" method="post">
+  <input id="stylist_id" name="stylist_id" type="hidden" value="$stylist.getId()">
+
+    <label for="stylistName">Stylist new name</label>
+    <input id="stylistName" name="stylistName" type="text">
+
+<button type="submit" id="modifyStylistName" class="btn btn-success">Change the stylist name</button>
+
+</form>
+
 <form action="/stylists/$stylist.getId()/delete" method="post">
   <button type="submit" class="btn btn-danger" id="delete-stylist">Delete stylist</button>
 </form>

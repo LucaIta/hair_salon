@@ -85,7 +85,17 @@ public class AppTest extends FluentTest {
   @Test public void stylistIsDeleted() { // it passes because I get error page
     goTo("http://localhost:4567/");
     fill("#stylistname").with("Mark");
+    submit(".btn");
     submit("#delete-stylist");
+    assertThat(!(pageSource()).contains("Mark"));
+  }
+
+  @Test public void stylistNameIsChangedCorrectly() { // it passes because I get error page
+    goTo("http://localhost:4567/");
+    fill("#stylistname").with("Mark");
+    submit(".btn");
+    fill("#stylistname").with("Luke");
+    submit("#modifyStylistName");
     assertThat(!(pageSource()).contains("Mark"));
   }
 
