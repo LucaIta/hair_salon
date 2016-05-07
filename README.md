@@ -13,7 +13,10 @@ Stylists and clients can be delited and their names can be modified._
 
 * _clone the following directory: https://github.com/LucaIta/hair_salon.git
 * _run the Spark Server
-* _create the restore the database from the file hair_salon.sql
+* _restore the database from the file hair_salon.sql, to do so, follow these steps:
+  1- in your terminal run: CREATE DATABASE hair_salon
+  2- psql hair_salon < hair_salon.sql
+  
 * _open your browser at the page http://localhost:4567/
 
 ## Known Bugs
