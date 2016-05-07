@@ -48,10 +48,10 @@ public class AppTest extends FluentTest {
   @Test public void ClientPageDisplayed() {
     Stylist newStylist = new Stylist ("Mark");
     newStylist.save();
+    Client newClient = new Client ("Luca", newStylist.getId());
+    newClient.save();
     String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
     goTo(stylistPath);
-    fill("#clientName").with("Luca");
-    submit("#addClient");
     click("a", withText("Luca"));
     assertThat(pageSource()).contains("Luca");
   }
@@ -59,11 +59,10 @@ public class AppTest extends FluentTest {
   @Test public void ClientCanBeDelited() {
     Stylist newStylist = new Stylist ("Mark");
     newStylist.save();
-    String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
-    goTo(stylistPath);
-    fill("#clientName").with("Luca");
-    submit("#addClient");
-    click("a", withText("Luca"));
+    Client newClient = new Client ("Luca", newStylist.getId());
+    newClient.save();
+    String clientPath = String.format("http://localhost:4567/stylists/%d/clients/%d", newStylist.getId(), newClient.getId());
+    goTo(clientPath);
     submit("#delete-user");
     assertThat(pageSource()).doesNotContain("Luca").contains("Mark");
   }
@@ -71,33 +70,32 @@ public class AppTest extends FluentTest {
   @Test public void ClientNameCanBeModified() {
     Stylist newStylist = new Stylist ("Mark");
     newStylist.save();
-    String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
-    goTo(stylistPath);
-    fill("#clientName").with("Luca");
-    submit("#addClient");
-    click("a", withText("Luca"));
+    Client newClient = new Client ("Luca", newStylist.getId());
+    newClient.save();
+    String clientPath = String.format("http://localhost:4567/stylists/%d/clients/%d", newStylist.getId(), newClient.getId());
+    goTo(clientPath);
     fill("#newClientName").with("Whatever");
     submit("#modifyButton");
     assertThat(pageSource()).contains("Whatever");
   }
 
   @Test public void stylistIsDeleted() {
-    goTo("http://localhost:4567/");
-    fill("#stylistname").with("Mark");
-    submit(".btn");
-    click("a", withText("Mark"));
+    Stylist newStylist = new Stylist ("Mark");
+    newStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
+    goTo(stylistPath);
     submit("#delete-stylist");
     assertThat(pageSource()).doesNotContain("Mark").contains("Hair Salon");
   }
 
   @Test public void stylistNameIsChangedCorrectly() {
-    goTo("http://localhost:4567/");
-    fill("#stylistname").with("Mark");
-    submit(".btn");
-    click("a", withText("Mark"));
+    Stylist newStylist = new Stylist ("Mark");
+    newStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
+    goTo(stylistPath);
     fill("#stylistName").with("Luke");
     submit("#modifyStylistName");
-    assertThat(pageSource()).contains("Luke"); // till here the tests are correct
+    assertThat(pageSource()).contains("Luke");
   }
 
 }
