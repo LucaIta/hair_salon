@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="ClientTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2016-05-07T01:02:01" hostname="epicodus-92.local" time="0.096">
+<testsuite name="ClientTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2016-05-07T01:25:28" hostname="epicodus-92.local" time="0.098">
   <properties/>
   <testcase name="delete_deleteClientCorrectly" classname="ClientTest" time="0.017"/>
-  <testcase name="save_savesClientCorrectlyInDatabase" classname="ClientTest" time="0.014"/>
-  <testcase name="getStylistId_returnsStylistIdCorrectly_34" classname="ClientTest" time="0.005"/>
+  <testcase name="save_savesClientCorrectlyInDatabase" classname="ClientTest" time="0.013"/>
+  <testcase name="getStylistId_returnsStylistIdCorrectly_34" classname="ClientTest" time="0.004"/>
   <testcase name="changeName_changeClientNameCorrectly" classname="ClientTest" time="0.018"/>
-  <testcase name="equals_correctlyCompareClientsCorrectly_true" classname="ClientTest" time="0.004"/>
+  <testcase name="equals_correctlyCompareClientsCorrectly_true" classname="ClientTest" time="0.005"/>
   <testcase name="Client_instantiatesCorrectly_true" classname="ClientTest" time="0.004"/>
-  <testcase name="find_returnClientByStylistId" classname="ClientTest" time="0.017"/>
-  <testcase name="getName_returnNameCorrectly_Mark" classname="ClientTest" time="0.004"/>
-  <testcase name="find_returnsClientCorrectly" classname="ClientTest" time="0.012"/>
+  <testcase name="find_returnClientByStylistId" classname="ClientTest" time="0.018"/>
+  <testcase name="getName_returnNameCorrectly_Mark" classname="ClientTest" time="0.003"/>
+  <testcase name="find_returnsClientCorrectly" classname="ClientTest" time="0.013"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

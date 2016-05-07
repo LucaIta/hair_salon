@@ -41,7 +41,7 @@ public class AppTest extends FluentTest {
     String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
     goTo(stylistPath);
     fill("#clientName").with("Luca");
-    submit(".btn");
+    submit("#addClient");
     assertThat(pageSource()).contains("Luca");
   }
 
@@ -51,7 +51,7 @@ public class AppTest extends FluentTest {
     String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
     goTo(stylistPath);
     fill("#clientName").with("Luca");
-    submit(".btn");
+    submit("#addClient");
     click("a", withText("Luca"));
     assertThat(pageSource()).contains("Luca");
   }
@@ -62,7 +62,7 @@ public class AppTest extends FluentTest {
     String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
     goTo(stylistPath);
     fill("#clientName").with("Luca");
-    submit(".btn");
+    submit("#addClient");
     click("a", withText("Luca"));
     submit("#delete-user");
     assertThat(pageSource()).contains("Mark");
@@ -75,14 +75,19 @@ public class AppTest extends FluentTest {
     String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
     goTo(stylistPath);
     fill("#clientName").with("Luca");
-    submit(".btn");
+    submit("#addClient");
     click("a", withText("Luca"));
     fill("#newClientName").with("Whatever");
     submit("#modifyButton");
     assertThat(pageSource()).contains("Whatever");
   }
 
-
+  @Test public void stylistIsDeleted() { // it passes because I get error page
+    goTo("http://localhost:4567/");
+    fill("#stylistname").with("Mark");
+    submit("#delete-stylist");
+    assertThat(!(pageSource()).contains("Mark"));
+  }
 
 
 

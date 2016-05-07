@@ -15,6 +15,10 @@
     <label for="clientName">Client name</label>
     <input id="clientName" name="clientName" type="text">
 
-<button type="submit" class="btn btn-success">Add a client to this stylist</button>
+<button type="submit" id="addClient" class="btn btn-success">Add a client to this stylist</button>
 
+</form>
+
+<form action="/stylists/$stylist.getId()/delete" method="post">
+  <button type="submit" class="btn btn-danger" id="delete-stylist">Delete stylist</button>
 </form>
