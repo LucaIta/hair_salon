@@ -69,6 +69,19 @@ public class AppTest extends FluentTest {
     assertThat(!(pageSource()).contains("Luca")); // is this test correct?
   }
 
+  @Test public void ClientNameCanBeModified() {
+    Stylist newStylist = new Stylist ("Mark");
+    newStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
+    goTo(stylistPath);
+    fill("#clientName").with("Luca");
+    submit(".btn");
+    click("a", withText("Luca"));
+    fill("#newClientName").with("Whatever");
+    submit("#modifyButton");
+    assertThat(pageSource()).contains("Whatever");
+  }
+
 
 
 

@@ -3,3 +3,15 @@
 <form action="/stylists/$client.getStylistId()/tasks/$client.getId()" method="post">
   <button type="submit" class="btn btn-danger" id="delete-user">Delete user</button>
 </form>
+
+
+////
+
+<form action="/stylists/$client.getStylistId()/tasks/$client.getId()/modifyName" method="post">
+
+    <label for="newClientName">New client name</label>
+    <input id="newClientName" name="newClientName" type="text">
+
+<button type="submit" id="modifyButton" class="btn btn-success">Modify client name</button>
+
+</form>
