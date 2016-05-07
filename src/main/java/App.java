@@ -47,6 +47,34 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/stylists/:id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      int stylist_id = Integer.parseInt(request.params("id"));
+      model.put("stylist", Stylist.find(stylist_id));
+      model.put("clients", Client.findByStylistId(stylist_id));
+      model.put("template", "templates/stylist.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    get("/stylists/:stylist_id/clients/:client_id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      int client_id = Integer.parseInt(request.params("client_id"));
+      model.put("client", Client.find(client_id));
+      model.put("template", "templates/client.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+    post("/stylists/:stylist_id/tasks/:client_id", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      int client_id = Integer.parseInt(request.params("client_id"));
+      int stylist_id = Integer.parseInt(request.params("stylist_id"));
+      Client.find(client_id).delete();
+      model.put("stylist", Stylist.find(stylist_id));
+      model.put("clients", Client.findByStylistId(stylist_id));
+      model.put("template", "templates/stylist.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
     // /stylists/$stylist.getId()/clients
 
   }

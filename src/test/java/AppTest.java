@@ -1,10 +1,12 @@
+import org.sql2o.*;
 import org.fluentlenium.adapter.FluentTest;
 import org.junit.ClassRule;
-import org.junit.Test;
+import org.junit.Rule;
 import org.junit.*;
-import static org.junit.Assert.*;
+import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import static org.fluentlenium.core.filter.FilterConstructor.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class AppTest extends FluentTest {
@@ -41,6 +43,30 @@ public class AppTest extends FluentTest {
     fill("#clientName").with("Luca");
     submit(".btn");
     assertThat(pageSource()).contains("Luca");
+  }
+
+  @Test public void ClientPageDisplayed() {
+    Stylist newStylist = new Stylist ("Mark");
+    newStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
+    goTo(stylistPath);
+    fill("#clientName").with("Luca");
+    submit(".btn");
+    click("a", withText("Luca"));
+    assertThat(pageSource()).contains("Luca");
+  }
+
+  @Test public void ClientCanBeDelited() {
+    Stylist newStylist = new Stylist ("Mark");
+    newStylist.save();
+    String stylistPath = String.format("http://localhost:4567/stylists/%d", newStylist.getId());
+    goTo(stylistPath);
+    fill("#clientName").with("Luca");
+    submit(".btn");
+    click("a", withText("Luca"));
+    submit("#delete-user");
+    assertThat(pageSource()).contains("Mark");
+    assertThat(!(pageSource()).contains("Luca")); // is this test correct?
   }
 
 
