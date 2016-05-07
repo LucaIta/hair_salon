@@ -65,8 +65,7 @@ public class AppTest extends FluentTest {
     submit("#addClient");
     click("a", withText("Luca"));
     submit("#delete-user");
-    assertThat(pageSource()).contains("Mark");
-    assertThat(!(pageSource()).contains("Luca")); // is this test correct?
+    assertThat(pageSource()).doesNotContain("Luca").contains("Mark");
   }
 
   @Test public void ClientNameCanBeModified() {
@@ -82,27 +81,23 @@ public class AppTest extends FluentTest {
     assertThat(pageSource()).contains("Whatever");
   }
 
-  @Test public void stylistIsDeleted() { // it passes because I get error page
+  @Test public void stylistIsDeleted() {
     goTo("http://localhost:4567/");
     fill("#stylistname").with("Mark");
     submit(".btn");
+    click("a", withText("Mark"));
     submit("#delete-stylist");
-    assertThat(!(pageSource()).contains("Mark"));
+    assertThat(pageSource()).doesNotContain("Mark").contains("Hair Salon");
   }
 
-  @Test public void stylistNameIsChangedCorrectly() { // it passes because I get error page
+  @Test public void stylistNameIsChangedCorrectly() {
     goTo("http://localhost:4567/");
     fill("#stylistname").with("Mark");
     submit(".btn");
-    fill("#stylistname").with("Luke");
+    click("a", withText("Mark"));
+    fill("#stylistName").with("Luke");
     submit("#modifyStylistName");
-    assertThat(!(pageSource()).contains("Mark"));
+    assertThat(pageSource()).contains("Luke"); // till here the tests are correct
   }
-
-
-
-  // @Test public void stylistsListIsDisplayedCorrectly() {
-  //   goTo("http://localhost:4567/stylists");
-  // }
 
 }
