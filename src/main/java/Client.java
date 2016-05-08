@@ -12,11 +12,6 @@ public class Client {
     this.stylist_id = stylist_id;
   }
 
-
-  // I could use 2 constructors to allow for the association of the client with the Stylist via name instead of ID
-
-
-
   public String getName(){
     return name;
   }
@@ -64,10 +59,10 @@ public class Client {
     }
   }
 
-  public static List<Client> findByStylistId(int stylist_id){ //modified
+  public static List<Client> findByStylistId(int stylist_id){
     try (Connection con = DB.sql2o.open()){
       String sql = "SELECT id, name, stylist_id FROM clients WHERE stylist_id = :stylist_id";
-      return con.createQuery(sql).addParameter("stylist_id", stylist_id).executeAndFetch(Client.class);  // modified
+      return con.createQuery(sql).addParameter("stylist_id", stylist_id).executeAndFetch(Client.class);
     }
   }
 

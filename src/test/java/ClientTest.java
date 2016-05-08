@@ -42,7 +42,7 @@ public class ClientTest {
   }
 
   @Test
-  public void find_returnsClientCorrectly(){  // do I need this method if I have FIND by Stylist ID ?
+  public void find_returnsClientCorrectly(){
     Client newClient = new Client("Mark", 1);
     newClient.save();
     assertTrue(newClient.equals(Client.find(newClient.getId())));

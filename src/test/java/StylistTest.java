@@ -60,6 +60,5 @@ public class StylistTest {
     newStylist.changeName("Mark");
     assertEquals("Mark", Stylist.find(client_Id).getName());
   }
-
-
+  
 }

@@ -65,7 +65,4 @@ public class Stylist {
       return this.getName().equals(otherStylist2.getName()) && this.getId() == otherStylist2.getId();
     }
   }
-
-
-
 }
